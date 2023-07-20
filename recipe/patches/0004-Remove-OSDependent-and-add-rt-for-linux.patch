@@ -1,4 +1,4 @@
-From 7a4e4c77ef61f51d64ebebccd464198226e733c6 Mon Sep 17 00:00:00 2001
+From bc9b4e4f84244aa106c30291bf3a06ba7ef0c6b5 Mon Sep 17 00:00:00 2001
 From: Mark Harfouche <mark.harfouche@gmail.com>
 Date: Sat, 24 Jun 2023 18:12:21 -0400
 Subject: [PATCH 4/5] Remove OSDependent and add rt for linux
@@ -57,5 +57,5 @@ index 99ce3c4..5291175 100644
  
  shaderc_add_tests(
 -- 
-2.39.2
+2.34.1
 

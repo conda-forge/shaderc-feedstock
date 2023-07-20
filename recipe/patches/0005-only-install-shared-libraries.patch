@@ -1,4 +1,4 @@
-From fb00235952f3fb2fb38b1b370f15ef5b07f0e5b4 Mon Sep 17 00:00:00 2001
+From 899bec25fdeb5a05c84e88ee76101548b25873bd Mon Sep 17 00:00:00 2001
 From: Mark Harfouche <mark.harfouche@gmail.com>
 Date: Sun, 25 Jun 2023 10:51:50 -0400
 Subject: [PATCH 5/5] only install shared libraries
@@ -10,10 +10,10 @@ Subject: [PATCH 5/5] only install shared libraries
  3 files changed, 11 insertions(+), 57 deletions(-)
 
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 94c879f..4fa44d5 100644
+index 158fc88..bf50556 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -167,6 +167,4 @@ function(define_pkg_config_file NAME LIBS)
+@@ -157,6 +157,4 @@ function(define_pkg_config_file NAME LIBS)
    endif()
  endfunction()
  
@@ -147,5 +147,5 @@ index 44d0d23..877f5c0 100644
    add_executable(shaderc_c_smoke_test ./src/shaderc_c_smoke_test.c)
    shaderc_default_c_compile_options(shaderc_c_smoke_test)
 -- 
-2.39.2
+2.34.1
 
