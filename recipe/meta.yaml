@@ -32,7 +32,7 @@ requirements:
   host:
     - spirv-tools
     - spirv-headers
-    - glslang
+    - glslang 13.0
 
 test:
   commands:
