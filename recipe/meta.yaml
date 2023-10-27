@@ -11,8 +11,8 @@ source:
     - patches/0001-Update-build-version-generation.patch
     - patches/0002-Update-the-location-of-SPRV-headers.patch
     - patches/0003-Update-thirdparty-dependency-resolution.patch
-    - patches/0004-Remove-OSDependent-and-add-rt-for-linux.patch
-    - patches/0005-only-install-shared-libraries.patch
+    - patches/0004-Update-dependenices-on-glslang-OSDependent-and-rt.patch
+    - patches/0005-Only-install-shared-libraries.patch
 
 build:
   number: 0

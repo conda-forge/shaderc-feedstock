@@ -1,4 +1,4 @@
-From 8d4fa243170d4ccc56e24e709fdedba7cf386fe2 Mon Sep 17 00:00:00 2001
+From 6d2f3e479dd6b62156fe4f6d7aad42481cdc762a Mon Sep 17 00:00:00 2001
 From: Mark Harfouche <mark.harfouche@gmail.com>
 Date: Sat, 24 Jun 2023 18:11:39 -0400
 Subject: [PATCH 2/5] Update the location of SPRV headers
@@ -21,5 +21,5 @@ index 525cbc5..f91ab09 100644
  #include "libshaderc_util/io_shaderc.h"
  #include "libshaderc_util/message.h"
 -- 
-2.34.1
+2.40.1
 

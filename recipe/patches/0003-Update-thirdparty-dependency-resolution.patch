@@ -1,4 +1,4 @@
-From 7c6c07eeb1c2e57b0f9e495303f41f1c14008293 Mon Sep 17 00:00:00 2001
+From b132da5255d81df088e66d72bfb82ad252d18091 Mon Sep 17 00:00:00 2001
 From: Mark Harfouche <mark.harfouche@gmail.com>
 Date: Wed, 19 Jul 2023 22:00:16 -0400
 Subject: [PATCH 3/5] Update thirdparty dependency resolution
@@ -74,5 +74,5 @@ index a01f31e..1224370 100644
  if (SHADERC_ENABLE_WGSL_OUTPUT)
    # Use Google Tint for WGSL output.
 -- 
-2.34.1
+2.40.1
 
