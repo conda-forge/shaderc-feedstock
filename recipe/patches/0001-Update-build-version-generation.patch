@@ -1,4 +1,4 @@
-From 5b2ca44b0101e43d78b49fa0dcc26401335cc323 Mon Sep 17 00:00:00 2001
+From 254191a77bbaece066211377cda6e74e4d6c1981 Mon Sep 17 00:00:00 2001
 From: Mark Harfouche <mark.harfouche@gmail.com>
 Date: Sat, 24 Jun 2023 18:11:18 -0400
 Subject: [PATCH 1/5] Update build version generation
@@ -48,5 +48,5 @@ index 11ee53e..b4ca274 100755
  
      if os.path.isfile(output_file):
 -- 
-2.34.1
+2.40.1
 
