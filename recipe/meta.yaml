@@ -38,7 +38,8 @@ requirements:
 test:
   commands:
     - test -f ${PREFIX}/lib/libshaderc${SHLIB_EXT}                # [unix]
-    - if not exist %PREFIX%\\Library\\bin\\libshaderc.dll exit 1  # [win]
+    - if not exist %PREFIX%\\Library\\bin\\shaderc.dll exit 1     # [win]
+    - if not exist %PREFIX%\\Library\\lib\\shaderc.lib exit 1     # [win]
     - glslc --help
 
 about:
