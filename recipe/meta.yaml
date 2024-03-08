@@ -1,4 +1,4 @@
-{% set version = "2023.7" %}
+{% set version = "2024.0" %}
 
 package:
   name: shaderc
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/google/shaderc/archive/v{{ version }}.tar.gz
-  sha256: 681e1340726a0bf46bea7e31f10cbfe78e01e4446a35d90fedc2b78d400fcdeb
+  sha256: c761044e4e204be8e0b9a2d7494f08671ca35b92c4c791c7049594ca7514197f
   patches:
     - patches/0001-Update-build-version-generation.patch
     - patches/0002-Update-the-location-of-SPRV-headers.patch
