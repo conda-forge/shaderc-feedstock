@@ -1,4 +1,4 @@
-From 6d2f3e479dd6b62156fe4f6d7aad42481cdc762a Mon Sep 17 00:00:00 2001
+From cbfa0ac641c12ba07899f142df245cada6489848 Mon Sep 17 00:00:00 2001
 From: Mark Harfouche <mark.harfouche@gmail.com>
 Date: Sat, 24 Jun 2023 18:11:39 -0400
 Subject: [PATCH 2/5] Update the location of SPRV headers
@@ -8,7 +8,7 @@ Subject: [PATCH 2/5] Update the location of SPRV headers
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/libshaderc_util/src/compiler.cc b/libshaderc_util/src/compiler.cc
-index 525cbc5..f91ab09 100644
+index 9bf9a43..dc0efd2 100644
 --- a/libshaderc_util/src/compiler.cc
 +++ b/libshaderc_util/src/compiler.cc
 @@ -20,7 +20,7 @@
@@ -21,5 +21,5 @@ index 525cbc5..f91ab09 100644
  #include "libshaderc_util/io_shaderc.h"
  #include "libshaderc_util/message.h"
 -- 
-2.40.1
+2.43.0
 
