@@ -1,0 +1,15 @@
+diff --git a/libshaderc_util/src/spirv_tools_wrapper.cc b/libshaderc_util/src/spirv_tools_wrapper.cc
+index 49426d0..1041caa 100644
+--- a/libshaderc_util/src/spirv_tools_wrapper.cc
++++ b/libshaderc_util/src/spirv_tools_wrapper.cc
+@@ -40,8 +40,8 @@ spv_target_env GetSpirvToolsTargetEnv(Compiler::TargetEnv env,
+           return SPV_ENV_VULKAN_1_2;
+         case Compiler::TargetEnvVersion::Vulkan_1_3:
+           return SPV_ENV_VULKAN_1_3;
+-        case Compiler::TargetEnvVersion::Vulkan_1_4:
+-          return SPV_ENV_VULKAN_1_4;
++        // case Compiler::TargetEnvVersion::Vulkan_1_4:
++        //   return SPV_ENV_VULKAN_1_4;
+         default:
+           break;
+       }
