@@ -13,6 +13,7 @@ source:
     - patches/0003-Update-thirdparty-dependency-resolution.patch
     - patches/0004-Update-dependenices-on-glslang.patch
     - patches/0005-Only-install-shared-libraries.patch
+    - patches/dont_do_enable_vulkan_1_4.patch
 
 build:
   number: 0
