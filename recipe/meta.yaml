@@ -1,4 +1,4 @@
-{% set version = "2023.7" %}
+{% set version = "2025.2" %}
 
 package:
   name: shaderc
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/google/shaderc/archive/v{{ version }}.tar.gz
-  sha256: 681e1340726a0bf46bea7e31f10cbfe78e01e4446a35d90fedc2b78d400fcdeb
+  sha256: 3fddc13bbb87411c6f7b8f447e87c1637933450087e70fc21da650041f4e0132
   patches:
     - patches/0001-Update-build-version-generation.patch
     - patches/0002-Update-the-location-of-SPRV-headers.patch
@@ -25,10 +25,10 @@ requirements:
     # If your project compiles code (such as a C extension) then add the required compilers as separate entries here.
     # Compilers are named 'c', 'cxx' and 'fortran'.
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
     - cmake
     - make                                   # [unix]
-    - sysroot_linux-64 2.17                  # [linux]
   host:
     - spirv-tools 2023.2
     # Keep headers in sync with spirv-tools
