@@ -28,7 +28,7 @@ requirements:
     - cmake
     - make                                   # [unix]
   host:
-    - spirv-tools 2025.1
+    - spirv-tools
     - spirv-headers
     - glslang
 
