@@ -15,7 +15,7 @@ source:
     - patches/0005-Only-install-shared-libraries.patch
 
 build:
-  number: 0
+  number: 1
   run_exports:
     # This is kinda annoying, the SO version is not related to the version
     - {{ pin_subpackage('shaderc', max_pin='x.x') }}
@@ -25,10 +25,10 @@ requirements:
     # If your project compiles code (such as a C extension) then add the required compilers as separate entries here.
     # Compilers are named 'c', 'cxx' and 'fortran'.
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
     - cmake
     - make                                   # [unix]
-    - sysroot_linux-64 2.17                  # [linux]
   host:
     - spirv-tools 2023.2
     # Keep headers in sync with spirv-tools
