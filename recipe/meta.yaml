@@ -22,11 +22,11 @@ build:
 
 requirements:
   build:
-    - {{ compiler('c') }}
     - {{ stdlib('c') }}
+    - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - cmake
-    - make                                   # [unix]
+    - make                   # [unix]
   host:
     - spirv-tools
     - spirv-headers
