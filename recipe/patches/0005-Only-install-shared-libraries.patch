@@ -1,33 +1,33 @@
-From 8b97dc677a58f6e7912ac3e08c546128d123e654 Mon Sep 17 00:00:00 2001
+From 530731f3728cfbdc6202fd5fc995c114f0eeb4fa Mon Sep 17 00:00:00 2001
 From: Mark Harfouche <mark.harfouche@gmail.com>
-Date: Fri, 27 Oct 2023 09:16:45 -0400
+Date: Sun, 23 Mar 2025 18:45:57 -0400
 Subject: [PATCH 5/5] Only install shared libraries
 
 ---
- CMakeLists.txt            |  4 +--
- libshaderc/CMakeLists.txt | 57 ++++-----------------------------------
- 2 files changed, 6 insertions(+), 55 deletions(-)
+ CMakeLists.txt            |  4 +---
+ libshaderc/CMakeLists.txt | 46 ++++-----------------------------------
+ 2 files changed, 5 insertions(+), 45 deletions(-)
 
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 158fc88..bf50556 100644
+index d7998cb..fa78f18 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -157,6 +157,4 @@ function(define_pkg_config_file NAME LIBS)
+@@ -167,6 +167,4 @@ function(define_pkg_config_file NAME LIBS)
    endif()
  endfunction()
- 
+
 -define_pkg_config_file(shaderc -lshaderc_shared)
 -define_pkg_config_file(shaderc_static "-lshaderc ${EXTRA_STATIC_PKGCONFIG_LIBS} -lshaderc_util")
 -define_pkg_config_file(shaderc_combined -lshaderc_combined)
 +define_pkg_config_file(shaderc -lshaderc)
 diff --git a/libshaderc/CMakeLists.txt b/libshaderc/CMakeLists.txt
-index fe3863e..888bb01 100644
+index 500019c..0d77e53 100644
 --- a/libshaderc/CMakeLists.txt
 +++ b/libshaderc/CMakeLists.txt
-@@ -24,24 +24,18 @@ set(SHADERC_SOURCES
+@@ -24,24 +24,17 @@ set(SHADERC_SOURCES
    src/shaderc_private.h
  )
- 
+
 -add_library(shaderc STATIC ${SHADERC_SOURCES})
 +add_library(shaderc SHARED ${SHADERC_SOURCES})
  shaderc_default_compile_options(shaderc)
@@ -35,7 +35,7 @@ index fe3863e..888bb01 100644
      PUBLIC include
      PRIVATE ${glslang_SOURCE_DIR}
              ${SPIRV-Headers_SOURCE_DIR}/include)
- 
+-
 -add_library(shaderc_shared SHARED ${SHADERC_SOURCES})
 -shaderc_default_compile_options(shaderc_shared)
 -target_include_directories(shaderc_shared
@@ -49,24 +49,24 @@ index fe3863e..888bb01 100644
  )
 -set_target_properties(shaderc_shared PROPERTIES SOVERSION 1)
 +set_target_properties(shaderc PROPERTIES SOVERSION 1)
- 
+
  if(SHADERC_ENABLE_INSTALL)
    install(
-@@ -54,7 +48,7 @@ if(SHADERC_ENABLE_INSTALL)
+@@ -54,7 +47,7 @@ if(SHADERC_ENABLE_INSTALL)
      DESTINATION
        ${CMAKE_INSTALL_INCLUDEDIR}/shaderc)
- 
+
 -  install(TARGETS shaderc shaderc_shared
 +  install(TARGETS shaderc
      LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
      RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
      BUNDLE DESTINATION ${CMAKE_INSTALL_BINDIR}
-@@ -71,22 +65,10 @@ set(SHADERC_LIBS
+@@ -70,22 +63,10 @@ set(SHADERC_LIBS
  )
- 
+
  target_link_libraries(shaderc PRIVATE ${SHADERC_LIBS})
 -target_link_libraries(shaderc_shared PRIVATE ${SHADERC_LIBS})
- 
+
  shaderc_add_tests(
    TEST_PREFIX shaderc
 -  LINK_LIBS shaderc
@@ -85,27 +85,14 @@ index fe3863e..888bb01 100644
    INCLUDE_DIRS include ${shaderc_SOURCE_DIR}/libshaderc_util/include ${glslang_SOURCE_DIR}
                 ${spirv-tools_SOURCE_DIR}/include
                 ${SPIRV-Headers_SOURCE_DIR}/include
-@@ -95,35 +77,6 @@ shaderc_add_tests(
+@@ -94,21 +75,7 @@ shaderc_add_tests(
      shaderc_cpp
      shaderc_private)
- 
+
 -shaderc_combine_static_lib(shaderc_combined shaderc)
 -
 -if(SHADERC_ENABLE_INSTALL)
--  # Since shaderc_combined is defined as an imported library, we cannot use the
--  # install() directive to install it. Install it like a normal file.
--  get_target_property(generated_location shaderc_combined LOCATION)
--  string(REGEX MATCH "Visual Studio .*" vs_generator "${CMAKE_GENERATOR}")
--  if (NOT "${vs_generator}" STREQUAL "")
--    # With Visual Studio generators, the LOCATION property is not properly
--    # expanded according to the current build configuration. We need to work
--    # around this problem by manually substitution.
--    string(REPLACE "$(Configuration)" "\${CMAKE_INSTALL_CONFIG_NAME}"
--      install_location "${generated_location}")
--    install(FILES ${install_location} DESTINATION ${CMAKE_INSTALL_LIBDIR})
--  else()
--    install(FILES ${generated_location} DESTINATION ${CMAKE_INSTALL_LIBDIR})
--  endif()
+-  install(TARGETS shaderc_combined DESTINATION ${CMAKE_INSTALL_LIBDIR})
 -endif(SHADERC_ENABLE_INSTALL)
 -
 -shaderc_add_tests(
@@ -117,10 +104,9 @@ index fe3863e..888bb01 100644
 -  TEST_NAMES
 -    shaderc
 -    shaderc_cpp)
--
++
+
  if(${SHADERC_ENABLE_TESTS})
    add_executable(shaderc_c_smoke_test ./src/shaderc_c_smoke_test.c)
-   shaderc_default_c_compile_options(shaderc_c_smoke_test)
--- 
-2.40.1
-
+--
+2.43.0
