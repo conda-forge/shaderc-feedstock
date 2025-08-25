@@ -1,17 +1,17 @@
-From b132da5255d81df088e66d72bfb82ad252d18091 Mon Sep 17 00:00:00 2001
+From 9c8e4212e4378e29db0b055388c9d9881f57534b Mon Sep 17 00:00:00 2001
 From: Mark Harfouche <mark.harfouche@gmail.com>
-Date: Wed, 19 Jul 2023 22:00:16 -0400
+Date: Sun, 23 Mar 2025 18:39:48 -0400
 Subject: [PATCH 3/5] Update thirdparty dependency resolution
 
 ---
- third_party/CMakeLists.txt | 55 ++------------------------------------
- 1 file changed, 2 insertions(+), 53 deletions(-)
+ third_party/CMakeLists.txt | 60 ++------------------------------------
+ 1 file changed, 2 insertions(+), 58 deletions(-)
 
 diff --git a/third_party/CMakeLists.txt b/third_party/CMakeLists.txt
-index a01f31e..1224370 100644
+index d44f62a..1224370 100644
 --- a/third_party/CMakeLists.txt
 +++ b/third_party/CMakeLists.txt
-@@ -43,59 +43,8 @@ if (IS_DIRECTORY ${SHADERC_SPIRV_HEADERS_DIR})
+@@ -43,64 +43,8 @@ if (IS_DIRECTORY ${SHADERC_SPIRV_HEADERS_DIR})
    add_subdirectory(${SHADERC_SPIRV_HEADERS_DIR} spirv-headers)
  endif()
  
@@ -55,6 +55,11 @@ index a01f31e..1224370 100644
 -
 -if (NOT TARGET glslang)
 -  if (IS_DIRECTORY ${SHADERC_GLSLANG_DIR})
+-    if (SHADERC_ENABLE_TESTS)
+-      # Glslang tests are off by default. Turn them on if testing Shaderc.
+-      set(GLSLANG_TESTS ON)
+-    endif()
+-    set(GLSLANG_ENABLE_INSTALL $<NOT:${SKIP_GLSLANG_INSTALL}>)
 -    add_subdirectory(${SHADERC_GLSLANG_DIR} glslang)
 -  endif()
 -  if (NOT TARGET glslang)
@@ -74,5 +79,5 @@ index a01f31e..1224370 100644
  if (SHADERC_ENABLE_WGSL_OUTPUT)
    # Use Google Tint for WGSL output.
 -- 
-2.40.1
+2.43.0
 
