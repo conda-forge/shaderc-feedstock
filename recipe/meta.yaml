@@ -1,4 +1,4 @@
-{% set version = "2025.3" %}
+{% set version = "2025.4" %}
 
 package:
   name: shaderc
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/google/shaderc/archive/v{{ version }}.tar.gz
-  sha256: a8e4a25e5c2686fd36981e527ed05e451fcfc226bddf350f4e76181371190937
+  sha256: 8a89fb6612ace8954470aae004623374a8fc8b7a34a4277bee5527173b064faf
   patches:
     - patches/0001-Update-build-version-generation.patch
     - patches/0002-Update-the-location-of-SPRV-headers.patch
@@ -15,7 +15,7 @@ source:
     - patches/0005-Only-install-shared-libraries.patch
 
 build:
-  number: 1
+  number: 0
   run_exports:
     # This is kinda annoying, the SO version is not related to the version
     - {{ pin_subpackage('shaderc', max_pin='x.x') }}
