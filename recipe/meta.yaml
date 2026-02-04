@@ -15,7 +15,7 @@ source:
     - patches/0005-Only-install-shared-libraries.patch
 
 build:
-  number: 0
+  number: 1
   run_exports:
     # This is kinda annoying, the SO version is not related to the version
     - {{ pin_subpackage('shaderc', max_pin='x.x') }}
