@@ -2,7 +2,7 @@
 
 package:
   name: shaderc
-  version: {{ version }}
+  version: "{{ version }}"
 
 source:
   url: https://github.com/google/shaderc/archive/v{{ version }}.tar.gz
