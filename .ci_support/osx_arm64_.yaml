@@ -20,6 +20,8 @@ cxx_compiler_version:
 - '19'
 macos_machine:
 - arm64-apple-darwin20.0.0
+shaderc:
+- '2026.2'
 spirv_tools:
 - '2026'
 target_platform:
