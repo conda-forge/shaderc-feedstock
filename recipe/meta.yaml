@@ -29,6 +29,7 @@ requirements:
     - {{ compiler('cxx') }}
     - cmake
     - make                                   # [unix]
+    - python
   host:
     - spirv-tools
     - spirv-headers
