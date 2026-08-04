@@ -13,4 +13,4 @@ shaderc:
 spirv_tools:
 - '2026'
 target_platform:
-- win-64
+- win-arm64
