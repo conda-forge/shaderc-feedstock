@@ -9,7 +9,7 @@ channel_targets:
 cxx_compiler:
 - vs2022
 shaderc:
-- '2026.2'
+- '2026.3'
 spirv_tools:
 - '2026'
 target_platform:
