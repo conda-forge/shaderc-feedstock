@@ -2,7 +2,7 @@ mkdir build
 if errorlevel 1 exit 1
 cd build
 if errorlevel 1 exit 1
-cmake -GNinja ^
+cmake %CMAKE_ARGS% -GNinja ^
   -DCMAKE_BUILD_TYPE=Release ^
   -DSHADERC_SKIP_TESTS=ON ^
   -DSHADERC_SKIP_EXAMPLES=ON ^
